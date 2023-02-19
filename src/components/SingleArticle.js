@@ -4,7 +4,10 @@ import { useGetArticlesByIdQuery } from '../features/APISlice'
 import { Link } from 'react-router-dom'
 
 export default function SingleArticle() {
+  // const { id } = useParams()
+
   const { id } = useParams()
+
   const { data, error, isLoading } = useGetArticlesByIdQuery(id)
 
   return (
@@ -14,11 +17,16 @@ export default function SingleArticle() {
       </Link>
 
       <h1>{id}</h1>
-      <h1>SingleArticle</h1>
-
+      <p>SingleArticle</p>
       {isLoading && <h1>Loading...</h1>}
       {error && <h1>Error...</h1>}
-      {data && <div>{JSON.stringify(data)}</div>}
+      {data && (
+        <div>
+          <h1>{data.title}</h1>
+          <p>- {data.author}</p>
+          <h3>{data}</h3>
+        </div>
+      )}
     </div>
   )
 }

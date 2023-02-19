@@ -17,7 +17,6 @@ export default function Home() {
               <h1>{item.title}</h1>
               <h4>{item.description}</h4>
               <p>{item.author}</p>
-
               <Link to={`/${item.id}`}>
                 <button>Read more...{item.id}</button>
               </Link>
